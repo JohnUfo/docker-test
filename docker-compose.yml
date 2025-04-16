@@ -1,10 +1,8 @@
-version: '3.8'
-
 services:
   backend:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: backend/Dockerfile  # Point to your backend Dockerfile
     ports:
       - "8080:8080"
     restart: unless-stopped
@@ -12,7 +10,7 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: frontend/Dockerfile
+      dockerfile: frontend/Dockerfile  # Point to your frontend Dockerfile
     ports:
       - "3000:80"
     depends_on:
