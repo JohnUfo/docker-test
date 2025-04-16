@@ -7,6 +7,6 @@ RUN mvn clean package
 # Runtime stage
 FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=build /app/backend/target/calculator-backend-0.0.1-SNAPSHOT.jar /app/calculator.jar
+COPY --from=build /app/target/*.jar /app/calculator.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "calculator.jar"]
